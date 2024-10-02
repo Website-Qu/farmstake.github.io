@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yield Farming & Staking Pools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            font-family: 'Poppins', sans-serif;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background: linear-gradient(45deg, #007bff, #00c6ff);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: #fff;
+        }
+
+        h1 {
+            color: #007bff;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            border-radius: 15px 15px 0 0;
+            font-size: 1.25rem;
+            padding: 1rem;
+        }
+
+        .btn-custom {
+            border-radius: 25px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Keyframes for fadeIn animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for sections and elements */
+.animate-section {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-title {
+    animation: fadeIn 1.2s ease-out;
+}
+
+.animate-card {
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Additional styling for buttons */
+.btn-custom {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+    background-color: #0056b3;
+}
+
+/* Additional styling for card headers */
+.card-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.card-header i {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 1rem;
+            background-color: #007bff;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="home.html"><i class="fas fa-seedling"></i> FarmStake</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="yieldDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="fas fa-leaf"></i> Yield Farming</a>
+                        <ul class="dropdown-menu" aria-labelledby="yieldDropdown">
+                            <li><a class="dropdown-item" href="poolist.html">Pool List</a></li>
+                            <li><a class="dropdown-item" href="riskanalisist.html">Risk Analysis</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="stakingDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="fas fa-coins"></i> Staking</a>
+                        <ul class="dropdown-menu" aria-labelledby="stakingDropdown">
+                            <li><a class="dropdown-item" href="staketokens.html">Stake Tokens</a></li>
+                            <li><a class="dropdown-item" href="stakinganalisis.html">Staking Analysis</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="portofolio.html"><i class="fas fa-chart-line"></i> Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="governance.html"><i class="fas fa-gavel"></i> Governance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+   <!-- Main Content -->
+<main class="container mt-5 animate-section">
+    <header class="text-center animate-title">
+        <h1>Yield Farming & Staking Pools</h1>
+    </header>
+
+    <section class="row">
+        <!-- Pool 1: Liquidity Pool -->
+        <article class="col-md-4 mb-4 animate-card">
+            <div class="card">
+                <header class="card-header bg-primary text-white">
+                    <i class="fas fa-water"></i> Liquidity Pool
+                </header>
+                <div class="card-body">
+                    <h2 class="card-title">ETH/DAI Pool</h2>
+                    <p class="card-text">Provide liquidity for ETH/DAI pair and earn trading fees and token rewards.</p>
+                    <ul>
+                        <li>Risk: Impermanent Loss</li>
+                        <li>Reward: Fee + LP Token</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-custom">Join Pool</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Pool 2: Single-Asset Staking -->
+        <article class="col-md-4 mb-4 animate-card">
+            <div class="card">
+                <header class="card-header bg-success text-white">
+                    <i class="fas fa-coins"></i> Single-Asset Staking Pool
+                </header>
+                <div class="card-body">
+                    <h2 class="card-title">Staking ETH Pool</h2>
+                    <p class="card-text">Stake your Ethereum and earn rewards in ETH without impermanent loss risk.</p>
+                    <ul>
+                        <li>Risk: Price Fluctuation</li>
+                        <li>Reward: ETH</li>
+                    </ul>
+                    <a href="#" class="btn btn-success btn-custom">Stake Now</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Pool 3: LP Token Staking -->
+        <article class="col-md-4 mb-4 animate-card">
+            <div class="card">
+                <header class="card-header bg-info text-white">
+                    <i class="fas fa-lock"></i> LP Token Staking Pool
+                </header>
+                <div class="card-body">
+                    <h2 class="card-title">ETH/DAI LP Staking</h2>
+                    <p class="card-text">Stake your LP tokens and earn additional rewards by locking your liquidity.</p>
+                    <ul>
+                        <li>Risk: Impermanent Loss</li>
+                        <li>Reward: Additional Token Rewards</li>
+                    </ul>
+                    <a href="#" class="btn btn-info btn-custom">Stake LP Token</a>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section class="row">
+        <!-- Pool 4: Stablecoin Pool -->
+        <article class="col-md-4 mb-4 animate-card">
+            <div class="card">
+                <header class="card-header bg-warning text-white">
+                    <i class="fas fa-dollar-sign"></i> Stablecoin Pool
+                </header>
+                <div class="card-body">
+                    <h2 class="card-title">USDC Pool</h2>
+                    <p class="card-text">Earn interest on your USDC with minimal risk through our stablecoin pool.</p>
+                    <ul>
+                        <li>Risk: Low</li>
+                        <li>Reward: Stable Interest</li>
+                    </ul>
+                    <a href="#" class="btn btn-warning btn-custom">Join Stablecoin Pool</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Pool 5: Farming with Yield Aggregators -->
+        <article class="col-md-4 mb-4 animate-card">
+            <div class="card">
+                <header class="card-header bg-danger text-white">
+                    <i class="fas fa-chart-line"></i> Yield Aggregator
+                </header>
+                <div class="card-body">
+                    <h2 class="card-title">Multi-Asset Yield Farm</h2>
+                    <p class="card-text">Maximize returns by automatically optimizing your yield farming strategies.</p>
+                    <ul>
+                        <li>Risk: Medium</li>
+                        <li>Reward: Optimized Yield</li>
+                    </ul>
+                    <a href="#" class="btn btn-danger btn-custom">Start Farming</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Pool 6: NFT Pool -->
+        <article class="col-md-4 mb-4 animate-card">
+            <div class="card">
+                <header class="card-header bg-secondary text-white">
+                    <i class="fas fa-image"></i> NFT Staking Pool
+                </header>
+                <div class="card-body">
+                    <h2 class="card-title">Stake NFTs for Rewards</h2>
+                    <p class="card-text">Earn rewards by staking your valuable NFTs in our staking pool.</p>
+                    <ul>
+                        <li>Risk: Market Liquidity</li>
+                        <li>Reward: NFT and Token Rewards</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary btn-custom">Stake NFT</a>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 FarmStake. All Rights Reserved.</p>
+            <div>
+                <a href="https://twitter.com" target="_blank" class="text-white"><i class="fab fa-twitter"></i></a>
+                <a href="https://telegram.org" target="_blank" class="text-white"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://github.com" target="_blank" class="text-white"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
